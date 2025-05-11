@@ -1,82 +1,118 @@
-## Structure
+# 🤖 DeBERTa Sentiment-Analysis App
 
----
+A full-stack sentiment-analytics platform that blends state-of-the-art DeBERTa language modelling with an interactive React dashboard. Tailored for financial news, the app distills sentiment from articles into keyword-driven word clouds and time-based trends—transforming unstructured content into clear signals for smarter investment decisions.
 
-- Backend: Python -- [Flask]([Welcome to Flask — Flask Documentation (3.2.x)](https://flask.palletsprojects.com/en/latest/))
-- Data Base: [MongoDB]([Download MongoDB Community Server | MongoDB](https://www.mongodb.com/try/download/community))
-- Front-end: [React]([Quick Start – React](https://react.dev/learn)), [Node]([Node.js — Download Node.js®](https://nodejs.org/en/download)), [SCSS]([Sass: Install Sass](https://sass-lang.com/install/)), [React Router]([Docs Home v6.28.1 | React Router](https://reactrouter.com/6.28.1/home))
-- UI: [Material UI]([Overview - Material UI](https://mui.com/material-ui/getting-started/)), [ECharts]([Examples - Apache ECharts](https://echarts.apache.org/examples/en/index.html))
+## 🔍 Key Features
 
-## Dependencies
+- **🧠 Finance-Tuned DeBERTa Model**
 
----
+  Fine-tuned on domain-specific corpora, the `deberta-v3-large` model delivers high-accuracy sentiment classification on financial news content—capturing nuanced emotional tone across headlines and long-form articles alike.
 
-- Make sure MongoDB is available on your PC
+- **🖥️ Full-Stack Modular Architecture**
 
-  - Download link 👉️https://www.mongodb.com/try/download/community
+  Built with React (frontend), Flask (backend), and MongoDB (database) to ensure fast performance, persistent data handling, and reliable support for real-time analysis workflows.
 
-- Make sure Node is available on your PC
+- **🌥️ LIME-Guided Sentiment Word Cloud**
 
-  - Download link 👉️https://nodejs.org/en/download
+  Highlights key terms from input text with polarity-based coloring in an interactive word cloud, using LIME to determine the most influential tokens—offering a clear, visual distillation of emotional tone, lexical emphasis, and the sentiment-laden language that defines each piece.
 
-- Make sure yarn is available on your PC
+- **📈 Sentiment Timeline & History Tracking**
 
-  ```cmd
+  Automatically logs each prediction with timestamped records, allowing users to monitor sentiment changes over time and identify trend shifts that may signal market movement.
+
+- **🎛️ Minimal, Focused UI Design**
+
+  The application features a streamlined layout with responsive components and polished visual hierarchy—keeping the interface clean, distraction-free, and optimized for real-world use.
+
+## 📁 Project Structure
+
+```bash
+sentiment-analysis-app/
+├── Backend/                     # Backend service built with Flask
+│   ├── server.py                # Main entry point; defines API endpoints
+│   ├── sentModel.py             # Loads DeBERTa model and handles inference logic
+│   └── mongo_db.py              # Handles MongoDB connection and sentiment result storage
+├── Front-end/                   # React-based frontend application
+│   ├── public/                  # Static assets and HTML template
+│   ├── src/                     
+│   │   ├── components/          # Reusable UI components (e.g., charts, inputs)
+│   │   ├── pages/               # Page-level views rendered by routes
+│   │   ├── App.js               # Application root; sets up routing and layout
+│   │   ├── AppContext.js        # React context for global state management
+│   │   └── ...                  # Other frontend modules and logic
+│   └── package.json             # Frontend dependencies, scripts, and metadata
+├── README.md                    # Project overview and usage instructions
+└── .gitignore                   # Specifies untracked files to ignore in Git
+```
+
+## 🛠 Tech Stack
+
+- **NLP / Model**: 🤗 Transformers `deberta-v3-large`, Python — `PyTorch`, `Lime`, etc.
+- **Backend**: Python — `Flask`
+- **Database**: `MongoDB`
+
+- **Frontend**: `React`, `Node.js`, `SCSS`, `React Router`
+
+- **UI & Visualization**: `Material UI`, `ECharts`
+
+## ⚙️ Dependencies
+
+- **MongoDB** – Required for data storage
+  👉 [Download MongoDB](https://www.mongodb.com/try/download/community)
+
+- **Node.js** – Required for running the frontend and installing packages
+  👉 [Download Node.js](https://nodejs.org/en/download)
+
+- **Yarn** – Package manager (alternative to npm)
+
+  ```bash
   npm install -g yarn
   ```
 
-- Make sure scss is available on your PC
+- **Sass (SCSS)** – For styling components
 
-  ```cmd
+  ```bash
   npm install -g sass
   ```
 
-- Download dependencies with yarn
+- **React & Core Libraries** –  For building UI (if not already in `node_modules`)
 
-  ```cmd
-  cd your path to MachineLearning APP/Front-end
-  yarn   # This operation will create a new file named node_modules
+  ```bash
+  yarn add react react-dom
   ```
 
-- Make sure React is available on your PC (may be already contained in the *node_modules* file)
+- **React Router** – For client-side routing (if not already in `node_modules`)
 
-  ```cmd
-  cd your path to MachineLearning APP/Front-end
-  npm install react react-dom   # install with Node
-  yarn add react react-dom   # install with yarn
+  ```bash
+  yarn add react-router-dom
   ```
 
-- Make sure React Router is available on your PC (may be already contained in the *node_modules* file)
+- **Echarts** – For data visualization (if not already in `node_modules`)
 
-  ```cmd
-  cd your path to MachineLearning APP/Front-end
-  npm install react-router-dom   # install with Node
-  yarn add react-router-dom   # install with yarn
+  ```bash
+  yarn add echarts echarts-wordcloud
   ```
 
-- Make sure ECharts is available on your PC (may be already contained in the *node_modules* file)
+## 🚀 Setup & Usage
 
-  ```cmd
-  cd your path to MachineLearning APP/Front-end
-  npm install echarts echarts-wordcloud   # install with Node
-  yarn add echarts echarts-wordcloud   # install with Node
-  ```
+1. **Clone the repository**
 
-## Usage
+   ```bash
+   git clone https://github.com/HenryyyLI/sentiment-analysis-app-deberta.git
+   cd sentiment-analysis-app-deberta
+   ```
 
----
+2. **Start the backend server**
 
-1. Run the server.py file to start server side
-
-   ```cmd
-   cd your path to MachineLearning APP/Backend
+   ```bash
+   cd backend
    python server.py
    ```
 
-2. Run the client side with yarn
+3. **Start the frontend application**
 
-   ```cmd
-   cd your path to MachineLearning APP/Front-end
+   ```bash
+   cd frontend
+   yarn install
    yarn start
    ```
-
