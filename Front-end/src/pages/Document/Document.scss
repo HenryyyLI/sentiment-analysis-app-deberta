@@ -1,0 +1,51 @@
+.document {
+    display: flex;
+    justify-content: space-between;
+    background-size: cover;
+    padding: 20px;
+    gap: 25px;
+
+    .left {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 20px;
+
+        .plot {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            -webkit-box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            overflow: hidden;
+            flex: 1;
+
+            .title-bar {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                width: 100%;
+                gap: 10px;
+                margin-top: 20px;
+                margin-left: 20px;
+    
+                .bar {
+                    height: 30px;
+                    width: 8px;
+                    background: #29CC5F;
+                }
+
+                .plot-title {
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        flex: 1;
+    }
+}

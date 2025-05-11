@@ -1,0 +1,31 @@
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     width="128"
+     height="128"
+     viewBox="0 0 128 128">
+  <!-- 标题（可选） -->
+  <title>情感分析 Logo</title>
+
+  <!-- 渐变定义：从红到绿 -->
+  <defs>
+    <linearGradient id="gradSentiment" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f44336; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4caf50; stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 圆形背景，填充渐变 -->
+  <circle cx="64" cy="64" r="60" fill="url(#gradSentiment)" />
+
+  <!-- 分析波形：用白色线条表示 -->
+  <path d="M 32 64 
+           L 48 48 
+           L 56 56 
+           L 72 40 
+           L 96 64"
+        stroke="#FFFFFF"
+        stroke-width="5"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round" />
+</svg>
