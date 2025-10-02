@@ -1,12 +1,14 @@
 from pymongo import MongoClient
 import json
 from bson import ObjectId
+from dotenv import load_dotenv
+import os
 
 # MongoDB Connection Configuration
-HOST = 'localhost'
-PORT = 27017
-DATABASE_NAME = 'machinelearning'
-COLLECTION_NAME = 'englishtext'
+load_dotenv()
+MONGO_URI = os.getenv("MONGO_URI")
+DATABASE_NAME = os.getenv("DATABASE_NAME")
+COLLECTION_NAME = os.getenv("COLLECTION_NAME")
 
 class MongoDBClient:
     """
@@ -17,12 +19,12 @@ class MongoDBClient:
     - Deleting documents
     """
 
-    def __init__(self, host, port, database, collection):
+    def __init__(self, uri, database, collection):
         """
         Initialize the client, connect to the MongoDB server,
         and select the specified database and collection.
         """
-        self.client = MongoClient(host=host, port=port)
+        self.client = MongoClient(uri)
         self.db = self.client[database]
         self.collection = self.db[collection]
 

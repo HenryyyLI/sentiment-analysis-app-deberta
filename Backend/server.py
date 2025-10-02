@@ -14,11 +14,14 @@ __all__ = ['app']
 app = Flask(__name__)
 CORS(app)
 
-# Database Configuration
-HOST = 'localhost'
-PORT = 27017
-DATABASE_NAME = 'machinelearning'
-COLLECTION_NAME = 'englishtext'
+from dotenv import load_dotenv
+import os
+
+# MongoDB Connection Configuration
+load_dotenv()
+MONGO_URI = os.getenv("MONGO_URI")
+DATABASE_NAME = os.getenv("DATABASE_NAME")
+COLLECTION_NAME = os.getenv("COLLECTION_NAME")
 
 def get_conn():
     """
@@ -26,7 +29,7 @@ def get_conn():
     and attaches it to Flask's 'g' (global context) object.
     """
     if not hasattr(g, 'mongo'):
-        g.mongo = MongoDBClient(HOST, PORT, DATABASE_NAME, COLLECTION_NAME)
+        g.mongo = MongoDBClient(uri=MONGO_URI, database=DATABASE_NAME, collection=COLLECTION_NAME)
     return g.mongo
 
 # Default Route
