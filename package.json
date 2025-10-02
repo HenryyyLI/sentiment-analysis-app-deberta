@@ -1,0 +1,17 @@
+{
+  "name": "machinelearning-app-new",
+  "version": "1.0.0",
+  "scripts": {
+    "client": "yarn --cwd Front-end start",
+    "server": "cd Backend && python server.py",
+    "build": "yarn --cwd Front-end install && yarn --cwd Front-end build && pip install -r Backend/requirements.txt",
+    "dev": "concurrently \"yarn client\" \"yarn server\""
+  },
+  "main": "index.js",
+  "repository": "https://github.com/HenryyyLI/sentiment-analysis-app-deberta.git",
+  "author": "xbbbbbbbbbbbb <297906031@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
