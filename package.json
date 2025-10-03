@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "client": "yarn --cwd Front-end start",
-    "server": "cd Backend && ../venv/bin/python server.py",
-    "build": "yarn install && yarn --cwd Front-end install && yarn --cwd Front-end build && python3 -m venv venv && ./venv/bin/pip install -r Backend/requirements.txt",
-    "dev": "concurrently \"HOST=0.0.0.0 yarn --cwd Front-end start\" \"yarn server\""
+    "server": "cd Backend && python server.py",
+    "build": "yarn --cwd Front-end build",
+    "dev": "concurrently \"yarn client\" \"yarn server\""
   },
   "main": "index.js",
   "repository": "https://github.com/HenryyyLI/sentiment-analysis-app-deberta.git",
