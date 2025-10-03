@@ -4,7 +4,7 @@
   "scripts": {
     "client": "yarn --cwd Front-end start",
     "server": "cd Backend && python server.py",
-    "build": "yarn --cwd Front-end build",
+    "build": "yarn install && yarn --cwd Front-end install && yarn --cwd Front-end build && python3 -m venv venv && pip install -r Backend/requirements.txt",
     "dev": "concurrently \"yarn client\" \"yarn server\""
   },
   "main": "index.js",
